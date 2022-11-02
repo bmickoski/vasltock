@@ -107,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "valstock"
+  "cli": {
+    "analytics": false
+  }
 }
