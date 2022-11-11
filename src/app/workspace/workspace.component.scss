@@ -1,0 +1,12 @@
+.workspace--workspace {
+  height: 100vh;
+  .workspace--header {
+    min-height: 50px;
+    .navbar-brand {
+      position: absolute;
+      left: 50%;
+      margin-left: -50px !important; /* 50% of your logo width */
+      display: block;
+    }
+  }
+}

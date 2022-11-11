@@ -1,0 +1,41 @@
+<div class="container">
+  <div class="row d-flex justify-content-center">
+    <div class="col-12 col-md-8 col-lg-6">
+      <div class="d-flex justify-content-center">
+        <form class="mb-3 mt-md-4" [formGroup]="form">
+          <h2 class="fw-bold mb-1">Join our stock community!</h2>
+          <h6 class="mb-5">
+            Donwload free photos and videos pwered by the best photographers
+          </h6>
+          <div class="mb-3">
+            <label for="username" class="form-label text-center"
+              >Username</label
+            >
+            <input
+              type="text"
+              class="form-control"
+              formControlName="username"
+              id="username"
+              placeholder="name@example.com"
+            />
+          </div>
+          <div class="mb-3">
+            <label for="password" class="form-label">Password</label>
+            <input
+              type="password"
+              class="form-control"
+              formControlName="password"
+              id="password"
+              placeholder="*******"
+            />
+          </div>
+          <div>
+            <button class="btn btn-dark w-100 text-uppercase" (click)="login()">
+              Log in
+            </button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

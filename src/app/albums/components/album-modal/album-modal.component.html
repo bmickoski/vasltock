@@ -1,0 +1,101 @@
+<!-- <div class="modal-body mt-5">
+  <ul ngbNav #nav="ngbNav" [(activeId)]="active" class="nav-tabs">
+    <li [ngbNavItem]="'create'">
+      <a ngbNavLink class="text-uppercase">Create new album</a>
+      <ng-template ngbNavContent>
+        <h2>Enter title here</h2>
+      </ng-template>
+    </li>
+    <li [ngbNavItem]="'existing'">
+      <a ngbNavLink class="text-uppercase">Add to existing</a>
+      <ng-template ngbNavContent>
+        <p>Exercitation</p>
+      </ng-template>
+    </li>
+  </ul>
+
+  <div [ngbNavOutlet]="nav" class="mt-2"></div>
+</div> -->
+
+<div class="modal-body mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="card border-0 border-white" *ngIf="image">
+      <div class="card-header bg-white border-0 border-white">
+        <div class="d-flex flex-row justify-content-center bd-highlight mb-3">
+          <div
+            class="p-2 bd-highlight"
+            (click)="setState(AlbumState.CreateNewAlbum)"
+          >
+            <p
+              role="button"
+              class="text-uppercase"
+              [ngClass]="{
+                'fw-light': state !== AlbumState.CreateNewAlbum,
+                'fw-semibold': state === AlbumState.CreateNewAlbum
+              }"
+            >
+              Create new album
+            </p>
+          </div>
+          <div
+            class="p-2 bd-highlight"
+            (click)="setState(AlbumState.AddToExisting)"
+          >
+            <p
+              role="button"
+              class="text-uppercase"
+              [ngClass]="{
+                'fw-light': state !== AlbumState.AddToExisting,
+                'fw-semibold': state === AlbumState.AddToExisting
+              }"
+            >
+              Add to existing
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="card-body border-0 border-white text-center">
+        <ng-container>
+          <div [hidden]="state !== AlbumState.CreateNewAlbum">
+            <input
+              [(ngModel)]="albumName"
+              type="text"
+              class="form-control"
+              placeholder="Enter title here"
+              aria-label="New Album name"
+              aria-describedby="addon-wrapping"
+            />
+          </div>
+        </ng-container>
+        <ng-container>
+          <div [hidden]="state !== AlbumState.AddToExisting">
+            <ul class="list-unstyled">
+              <li
+                *ngFor="let album of albums; let i = index; let last = last"
+                role="button"
+                (click)="addToSelected(album)"
+              >
+                <span *ngIf="checkIfSelected(album)">✔</span> {{ album.name }}
+              </li>
+            </ul>
+          </div>
+        </ng-container>
+      </div>
+      <div class="card-footer bg-white border-0 border-white text-center">
+        <div class="d-flex flex-row justify-content-center bd-highlight mb-3">
+          <div class="p-2 bd-highlight">
+            <button
+              class="btn btn-light"
+              (click)="activeModal.dismiss('Cross click')"
+            >
+              Cancel
+            </button>
+          </div>
+          <div class="p-2 bd-highlight">
+            <button class="btn btn-dark" (click)="createAlbum()">Save</button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

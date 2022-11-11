@@ -1,0 +1,45 @@
+<div class="container">
+  <div
+    class="row d-flex justify-content-center"
+    data-masonry='{"percentPosition": true }'
+  >
+    <div class="col-sm-6 col-lg-4 mt-4 mb-4" *ngFor="let image of images">
+      <div class="card">
+        <img
+          [routerLink]="['/dashboard', image.id]"
+          [src]="image.download_url"
+          class="card-img-top"
+          [alt]="image.author"
+        />
+        <div class="card-footer text-muted bg-dark text-center text-uppercase">
+          Add to album
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- Scrolling area with items -->
+<!-- <cdk-virtual-scroll-viewport #scroller [itemSize]="300">
+    <div
+      class="row d-flex justify-content-center"
+    >
+      <div
+        class="col-sm-6 col-lg-4 mt-4 mb-4"
+        *cdkVirtualFor="let image of images"
+      >
+        <div class="card">
+          <img
+            [routerLink]="['/dashboard', image.id]"
+            [src]="image.download_url"
+            class="card-img-top"
+            [alt]="image.author"
+          />
+          <div
+            class="card-footer text-muted bg-dark text-center text-uppercase"
+          >
+            Add to album
+          </div>
+        </div>
+      </div>
+    </div>
+  </cdk-virtual-scroll-viewport> -->

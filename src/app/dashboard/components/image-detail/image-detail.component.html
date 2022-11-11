@@ -1,0 +1,109 @@
+<!-- <div class="container">
+  <div class="d-flex justify-content-center" *ngIf="image">
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <button class="btn btn-light">Add to album</button>
+      </div>
+      <div class="p-2 bd-highlight">
+        <button class="btn btn-dark">Download</button>
+      </div>
+    </div>
+    <div class="d-flex flex-row bd-highlight mb-3">
+      <div class="p-2 bd-highlight">
+        <div class="card">
+          <img
+            width="200"
+            height="300"
+            [src]="image.download_url"
+            class="card-img-top"
+            [alt]="image.author"
+          />
+          <div
+            class="card-footer text-muted bg-dark text-center text-uppercase"
+          >
+            Add to album
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div> -->
+
+<div class="d-flex justify-content-center">
+  <div class="card border-0 border-white" *ngIf="image">
+    <div class="card-header bg-white border-0 border-white">
+      <div class="d-flex flex-row justify-content-center bd-highlight mb-3">
+        <div class="p-2 bd-highlight">
+          <button class="btn btn-light" (click)="addToAlbum()">Add to album</button>
+        </div>
+        <div class="p-2 bd-highlight">
+          <div ngbDropdown class="d-inline-block">
+            <button
+              type="button"
+              class="btn btn-dark"
+              id="downloadOptions"
+              ngbDropdownToggle
+            >
+              Download
+            </button>
+            <div
+              ngbDropdownMenu
+              aria-labelledby="downloadOptions"
+              class="border-3 border-dark"
+            >
+              <p
+                class="fs-6"
+                role="button"
+                ngbDropdownItem
+                (click)="downloadImage('2632', '3290')"
+              >
+                Original (2632 X 3290)
+              </p>
+              <p
+                class="fs-6"
+                role="button"
+                ngbDropdownItem
+                (click)="downloadImage('1920', '2400')"
+              >
+                Large (1920 X 2400)
+              </p>
+              <p
+                class="fs-6"
+                role="button"
+                ngbDropdownItem
+                (click)="downloadImage('1280', '1600')"
+              >
+                Medium (1280 X 1600)
+              </p>
+              <p
+                class="fs-6"
+                role="button"
+                ngbDropdownItem
+                (click)="downloadImage('640', '800')"
+              >
+                Small (640 X 800)
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img
+      height="300"
+      [src]="image.download_url"
+      class="card-img-top"
+      [alt]="image.author"
+    />
+    <div class="card-body border-0 border-white text-center">
+      <h5 class="card-title">Uploaded by</h5>
+      <p class="card-text">
+        {{ image.author }}
+      </p>
+      <p class="card-text">
+        <button class="btn btn-light" [routerLink]="['/dashboard']">
+          Go back
+        </button>
+      </p>
+    </div>
+  </div>
+</div>

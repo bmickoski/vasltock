@@ -1,0 +1,21 @@
+<div class="container mt-5">
+  <div class="d-flex justify-content-center">
+    <div class="card-group" *ngIf="images && images.length > 0">
+      <div class="card" style="min-width: 350px" *ngFor="let image of images">
+        <img
+          width="250"
+          height="300"
+          [src]="image.download_url"
+          class="card-img-top"
+          [alt]="image.author"
+        />
+        <div
+          role="button"
+          class="card-footer text-white text-muted bg-danger text-center text-uppercase"
+        >
+          <span class="text-white">Remove</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
